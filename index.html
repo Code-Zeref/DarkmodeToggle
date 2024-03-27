@@ -1,0 +1,70 @@
+<!doctype html>
+<html data-theme="dark">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <title>Dark Mode | Vanilla JS Projects</title>
+
+  <link rel="stylesheet" crossorigin href="style.css">
+  <link rel="stylesheet" crossorigin href="darklight.css">
+</head>
+
+<body class="container grid">
+  <header>
+    <h1 id="header">Dark mode</h1>
+  </header>
+
+  <nav style="align-self:center;">
+
+    <label>
+      <input type="checkbox" id="toggle" name="toggle" role="switch" checked>
+      Use dark mode
+    </label>
+
+  </nav>
+
+  <main>
+    <article>
+
+      <main id="darklight"></main>
+
+    </article>
+  </main>
+
+  <footer>
+
+
+  </footer>
+  <script id="theme.js">
+    const doc = document.documentElement;
+    const toggle = document.getElementById('toggle');
+
+    function applyTheme() {
+      const currentTheme = doc.getAttribute('data-theme');
+      const newTheme = (currentTheme == 'dark')?'light': 'dark';
+      doc.setAttribute('data-theme', newTheme);
+
+      if(newTheme == 'light'){
+        const text = document.getElementById('header');
+        text.innerHTML = 'Light Mode';
+        
+      }
+      else {
+        text = document.getElementById('header');
+        text.innerHTML = 'Dark Mode';
+      }
+
+    }
+
+    toggle.addEventListener('change', applyTheme);
+
+
+
+  </script>
+</body>
+
+</html>
